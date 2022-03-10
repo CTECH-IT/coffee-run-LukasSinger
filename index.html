@@ -9,14 +9,64 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
     <link rel="stylesheet" href="stylesheets/styles.css" />
   </head>
 
-  <body>
+  <body class="container">
     <header>
-      <h1 class="page-title">My Awesome Website</h1>
-      <p>This is some awesome text.</p>
+      <h1 class="page-title">Chocolate Run</h1>
     </header>
+    <section>
+      <div class="card card-default">
+        <div class="card-body">
+          <form data-chocolate-order="form">
+            <div class="form-group">
+              <label for="chocolateOrder">Chocolate Order</label>
+              <input
+                class="form-control"
+                name="chocolate"
+                id="chocolateOrder"
+                placeholder="The entire store"
+                autofocus
+              />
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Email Address</label>
+              <input
+                class="form-control"
+                name="emailAddress"
+                id="emailInput"
+                value=""
+                placeholder="wowitsanemail@email.com"
+              />
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="mini" />
+                Mini
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="regular" checked />
+                Regular
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="king" />
+                King
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <script src="scripts/datastore.js" charset="utf-8"></script>
     <script src="scripts/truck.js" charset="utf-8"></script>
