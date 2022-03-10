@@ -63,6 +63,27 @@
                 King
               </label>
             </div>
+            <div class="form-group">
+              <label for="filling">Filling</label>
+              <select name="filling" id="filling" class="form-control">
+                <option value="">None</option>
+                <option value="caramel">Caramel</option>
+                <option value="nougat">Nougat</option>
+                <option value="pb">Peanut Butter</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="purityLevel">Cocoa Purity</label>
+              <input
+                name="purity"
+                id="purityLevel"
+                type="range"
+                class="form-control-range"
+                value="30"
+              />
+            </div>
+            <button type="reset" class="btn btn-secondary">Reset Order</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
