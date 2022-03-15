@@ -12,6 +12,21 @@
     }
   }
 
+  FormHandler.prototype.addSubmitHandler = function (func) {
+    this.$formElement.on("submit", (e) => {
+      e.preventDefault();
+      let data = {};
+      $(this.$formElement)
+        .serializeArray()
+        .forEach((item) => {
+          data[item.name] = item.value;
+        });
+      func(data);
+      this.$formElement[0].reset();
+      this.$formElement[0].elements[0].focus();
+    });
+  };
+
   App.FormHandler = FormHandler;
   window.App = App;
 })(window);
