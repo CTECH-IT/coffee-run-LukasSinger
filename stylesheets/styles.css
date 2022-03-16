@@ -1,1 +1,76 @@
-/* Put your CSS here */
+:root {
+  --blue: #1f93ff;
+  --green: #2daf34;
+  --yellow: #d37f00;
+  --red: #e6044f;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #cacaca;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: #cacaca;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.green {
+  color: var(--green);
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+.red {
+  color: var(--red);
+}
+
+.blue-bg::-webkit-slider-thumb {
+  background-color: var(--blue);
+}
+
+.green-bg::-webkit-slider-thumb {
+  background-color: var(--green);
+}
+
+.yellow-bg::-webkit-slider-thumb {
+  background-color: var(--yellow);
+}
+
+.red-bg::-webkit-slider-thumb {
+  background-color: var(--red);
+}
+
+.blue-bg::-moz-range-thumb {
+  background-color: var(--blue);
+}
+
+.green-bg::-moz-range-thumb {
+  background-color: var(--green);
+}
+
+.yellow-bg::-moz-range-thumb {
+  background-color: var(--yellow);
+}
+
+.red-bg::-moz-range-thumb {
+  background-color: var(--red);
+}

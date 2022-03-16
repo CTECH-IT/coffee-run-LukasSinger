@@ -79,13 +79,18 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="purityLevel" basetext="Cocoa Purity"></label>
+              <label
+                for="purityLevel"
+                basetext="Cocoa Purity"
+                data-chocolate-order="sliderLabel"
+              ></label>
               <input
                 name="purity"
                 id="purityLevel"
                 type="range"
                 class="form-control-range"
                 value="30"
+                data-chocolate-order="slider"
               />
             </div>
             <button type="reset" class="btn btn-secondary">Reset Order</button>
@@ -100,6 +105,7 @@
       charset="utf-8"
     ></script>
     <script src="scripts/formHandler.js" charset="utf-8"></script>
+    <script src="scripts/slider.js" charset="utf-8"></script>
     <script src="scripts/datastore.js" charset="utf-8"></script>
     <script src="scripts/truck.js" charset="utf-8"></script>
     <script src="scripts/main.js" charset="utf-8"></script>
