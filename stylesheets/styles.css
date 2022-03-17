@@ -5,6 +5,10 @@
   --red: #e6044f;
 }
 
+.hidden {
+  display: none;
+}
+
 input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
