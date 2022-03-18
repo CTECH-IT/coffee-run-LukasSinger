@@ -9,14 +9,18 @@
   const POWERUP_OPTIN_SELECTOR = '[data-chocolate-order="superoptin"]';
   const POWERUP_SECTION = '[data-chocolate-order="powerup"]';
   const RESET_BUTTON_SELECTOR = 'button[type="reset"]';
+  const CHECKLIST_SELECTOR = '[data-chocolate-order="checklist"]';
 
   let App = window.App;
   let Truck = App.Truck;
   let DataStore = App.DataStore;
   let FormHandler = App.FormHandler;
   let Slider = App.Slider;
+  let Checklist = App.Checklist;
 
   let myTruck = new Truck("12345", new DataStore());
+  let checklist = new Checklist(CHECKLIST_SELECTOR);
+
   window.myTruck = myTruck;
 
   let slider = new Slider(
@@ -36,6 +40,10 @@
     slider
   );
   formHandler.addEmailHandler();
-  formHandler.addSubmitHandler(myTruck.createOrder.bind(myTruck));
+  formHandler.addSubmitHandler(function (data) {
+    myTruck.createOrder.call(myTruck, data);
+    checklist.addRow.call(checklist, data);
+    slider.updateSliderValue();
+  });
   formHandler.addResetHandler();
 })(window);
