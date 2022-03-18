@@ -17,8 +17,28 @@
   }
 
   Checklist.prototype.addRow = function (chocOrder) {
+    this.removeRow(chocOrder.emailAddress);
     let row = new Row(chocOrder);
     this.$checklistElement.append(row.$rowElement);
+  };
+
+  Checklist.prototype.removeRow = function (email) {
+    this.$element
+      .find(`[value="${email}"`)
+      .closest('[data-chocolate-order="checkbox"]')
+      .remove();
+  };
+
+  Checklist.prototype.addClickHandler = function (func) {
+    this.$element.on(
+      "click",
+      "input",
+      function (e) {
+        let email = e.target.value;
+        this.removeRow(email);
+        func(email);
+      }.bind(this)
+    );
   };
 
   function Row(chocOrder) {
@@ -33,9 +53,9 @@
     });
     let description = `${chocOrder.size} ${
       chocOrder.filling ? `${chocOrder.filling} ` : ""
-    } ${chocOrder.chocolate}, (${chocOrder.emailAddress}) [${
-      chocOrder.purity
-    }% purity]`;
+    } ${chocOrder.powerup ? `${chocOrder.powerup} ` : ""} ${
+      chocOrder.chocolate
+    }, (${chocOrder.emailAddress}) [${chocOrder.purity}% purity]`;
 
     $label.append($checkbox);
     $label.append(description);

@@ -1,4 +1,6 @@
 (function (window) {
+  "use strict";
+
   let App = window.App || {};
   let $ = window.jQuery;
 
@@ -81,6 +83,7 @@
       func(data);
       this.$formElement[0].reset();
       this.$formElement[0].elements[0].focus();
+      this.slider.updateSliderValue();
       if (data["size"] == "yuge" && data["purity"] == 100) {
         this.$superModal.modal();
         this.$superOptIn.on("click", (e) => {

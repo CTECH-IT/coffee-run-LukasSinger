@@ -43,7 +43,8 @@
   formHandler.addSubmitHandler(function (data) {
     myTruck.createOrder.call(myTruck, data);
     checklist.addRow.call(checklist, data);
-    slider.updateSliderValue();
   });
   formHandler.addResetHandler();
+
+  checklist.addClickHandler(myTruck.deliverOrder.bind(myTruck));
 })(window);
