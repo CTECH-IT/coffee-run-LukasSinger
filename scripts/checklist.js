@@ -23,14 +23,14 @@
   };
 
   Checklist.prototype.removeRow = function (email) {
-    this.$element
+    this.$checklistElement
       .find(`[value="${email}"`)
       .closest('[data-chocolate-order="checkbox"]')
       .remove();
   };
 
   Checklist.prototype.addClickHandler = function (func) {
-    this.$element.on(
+    this.$checklistElement.on(
       "click",
       "input",
       function (e) {
@@ -51,11 +51,11 @@
       type: "checkbox",
       value: chocOrder.emailAddress
     });
-    let description = `${chocOrder.size} ${
+    let description = `[${chocOrder.purity}% purity] ${chocOrder.size} ${
       chocOrder.filling ? `${chocOrder.filling} ` : ""
     } ${chocOrder.powerup ? `${chocOrder.powerup} ` : ""} ${
       chocOrder.chocolate
-    }, (${chocOrder.emailAddress}) [${chocOrder.purity}% purity]`;
+    } (${chocOrder.emailAddress})`;
 
     $label.append($checkbox);
     $label.append(description);
