@@ -3,6 +3,9 @@
   --green: #2daf34;
   --yellow: #d37f00;
   --red: #e6044f;
+  --caramel: #d39614;
+  --nougat: rgb(161, 112, 55);
+  --pb: rgb(218, 131, 0);
 }
 
 .hidden {
@@ -45,6 +48,18 @@ input[type="range"]::-moz-range-track {
 
 .red {
   color: var(--red);
+}
+
+.caramel {
+  background-color: var(--caramel);
+}
+
+.nougat {
+  background-color: var(--nougat);
+}
+
+.pb {
+  background-color: var(--pb);
 }
 
 .blue-bg::-webkit-slider-thumb {

@@ -57,6 +57,10 @@
       chocOrder.chocolate
     } (${chocOrder.emailAddress})`;
 
+    if (chocOrder.filling) {
+      $div[0].classList.add(chocOrder.filling);
+    }
+
     $label.append($checkbox);
     $label.append(description);
     $div.append($label);
