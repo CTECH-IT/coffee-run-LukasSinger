@@ -4,12 +4,18 @@
   let App = window.App || {};
   let $ = window.jQuery;
 
-  function Checklist(selector) {
-    if (!selector) {
+  function Checklist(selector, tooBadSelector) {
+    if (!selector || !tooBadSelector) {
       throw new Error("Oops! You forgot to provide a selector!");
     }
     this.$checklistElement = $(selector);
+    this.$tooBadModal = $(tooBadSelector);
+    this.pendingRemoval = false;
     if (this.$checklistElement.length == 0) {
+      throw new Error(
+        "Typo? Could not find element with selector: " + selector
+      );
+    } else if (this.$tooBadModal.length == 0) {
       throw new Error(
         "Typo? Could not find element with selector: " + selector
       );
@@ -34,9 +40,21 @@
       "click",
       "input",
       function (e) {
-        let email = e.target.value;
-        this.removeRow(email);
-        func(email);
+        if (e.detail > 1) {
+          this.pendingRemoval = false;
+          e.target.parentElement.classList.remove("pending-removal");
+          this.$tooBadModal.modal();
+        } else {
+          this.pendingRemoval = true;
+          e.target.parentElement.classList.add("pending-removal");
+          setTimeout(() => {
+            if (this.pendingRemoval) {
+              let email = e.target.value;
+              this.removeRow(email);
+              func(email);
+            }
+          }, 1000);
+        }
       }.bind(this)
     );
   };

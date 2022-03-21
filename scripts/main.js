@@ -10,6 +10,7 @@
   const POWERUP_SECTION = '[data-chocolate-order="powerup"]';
   const RESET_BUTTON_SELECTOR = 'button[type="reset"]';
   const CHECKLIST_SELECTOR = '[data-chocolate-order="checklist"]';
+  const TOO_BAD_SELECTOR = "#tooBad";
 
   let App = window.App;
   let Truck = App.Truck;
@@ -19,7 +20,7 @@
   let Checklist = App.Checklist;
 
   let myTruck = new Truck("12345", new DataStore());
-  let checklist = new Checklist(CHECKLIST_SELECTOR);
+  let checklist = new Checklist(CHECKLIST_SELECTOR, TOO_BAD_SELECTOR);
 
   window.myTruck = myTruck;
 

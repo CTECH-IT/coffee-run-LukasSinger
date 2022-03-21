@@ -6,6 +6,7 @@
   --caramel: #d39614;
   --nougat: #a17037;
   --pb: #da8300;
+  --gray: #656c6d;
 }
 
 .hidden {
@@ -60,6 +61,10 @@ input[type="range"]::-moz-range-track {
 
 .pb {
   background-color: var(--pb);
+}
+
+.pending-removal {
+  color: var(--gray);
 }
 
 .blue-bg::-webkit-slider-thumb {
