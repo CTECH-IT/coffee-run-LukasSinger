@@ -18,6 +18,7 @@
   let FormHandler = App.FormHandler;
   let Slider = App.Slider;
   let Checklist = App.Checklist;
+  let Validation = App.Validation;
 
   let myTruck = new Truck("12345", new DataStore());
   let checklist = new Checklist(CHECKLIST_SELECTOR, TOO_BAD_SELECTOR);
@@ -46,6 +47,9 @@
     checklist.addRow.call(checklist, data);
   });
   formHandler.addResetHandler();
+  formHandler.addEmailValidityHandler(Validation.isCompanyEmail);
+  formHandler.addOrderValidityHandler(Validation.isStrongDecaf);
+  formHandler.addStrengthValidityHandler(Validation.isStrongDecaf);
 
   checklist.addClickHandler(myTruck.deliverOrder.bind(myTruck));
 })(window);

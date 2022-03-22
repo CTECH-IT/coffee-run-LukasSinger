@@ -102,6 +102,45 @@
     });
   };
 
+  FormHandler.prototype.addEmailValidityHandler = function (func) {
+    this.$formElement.on("input", "[name='emailAddress']", function (e) {
+      let email = e.target.value;
+      if (func(email)) {
+        e.target.setCustomValidity("");
+      } else {
+        e.target.setCustomValidity(
+          "Not a valid email address. Smh you can't even type"
+        );
+      }
+    });
+  };
+
+  FormHandler.prototype.addOrderValidityHandler = function (func) {
+    this.$formElement.on("input", "[name='chocolate']", function (e) {
+      let order = e.target.value;
+      if (func(order, slider.value)) {
+        e.target.setCustomValidity("");
+      } else {
+        e.target.setCustomValidity(
+          "You can't have decaf if you want a ton of cocoa. Don't you know how caffeine works?"
+        );
+      }
+    });
+  };
+
+  FormHandler.prototype.addStrengthValidityHandler = function (func) {
+    this.$formElement.on("input", "[name='purity']", function (e) {
+      let strength = e.target.value;
+      if (func(strength)) {
+        e.target.setCustomValidity("");
+      } else {
+        e.target.setCustomValidity(
+          "You can't have decaf if you want a ton of cocoa. Don't you know how caffeine works?"
+        );
+      }
+    });
+  };
+
   App.FormHandler = FormHandler;
   window.App = App;
 })(window);
