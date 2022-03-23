@@ -116,12 +116,17 @@
   };
 
   FormHandler.prototype.addOrderValidityHandler = function (func) {
-    this.$formElement.on("input", "[name='chocolate']", function (e) {
+    this.$formElement.on("input", "[name='chocolate']", (e) => {
       let order = e.target.value;
-      if (func(order, slider.value)) {
+      let strength = this.slider.$sliderElement[0].value;
+      if (func(order, strength)) {
         e.target.setCustomValidity("");
+        this.slider.$sliderElement[0].setCustomValidity("");
       } else {
         e.target.setCustomValidity(
+          "You can't have decaf if you want a ton of cocoa. Don't you know how caffeine works?"
+        );
+        this.slider.$sliderElement[0].setCustomValidity(
           "You can't have decaf if you want a ton of cocoa. Don't you know how caffeine works?"
         );
       }
@@ -129,14 +134,21 @@
   };
 
   FormHandler.prototype.addStrengthValidityHandler = function (func) {
-    this.$formElement.on("input", "[name='purity']", function (e) {
+    this.$formElement.on("input", "[name='purity']", (e) => {
+      let order = document.querySelector("[name='chocolate']").value;
       let strength = e.target.value;
-      if (func(strength)) {
+      if (func(order, strength)) {
         e.target.setCustomValidity("");
+        document.querySelector("[name='chocolate']").setCustomValidity("");
       } else {
         e.target.setCustomValidity(
           "You can't have decaf if you want a ton of cocoa. Don't you know how caffeine works?"
         );
+        document
+          .querySelector("[name='chocolate']")
+          .setCustomValidity(
+            "You can't have decaf if you want a ton of cocoa. Don't you know how caffeine works?"
+          );
       }
     });
   };

@@ -6,8 +6,8 @@
     isCompanyEmail: function (email) {
       return /.+@isd535\.org$/.test(email);
     },
-    isStrongDecaf: function (order, strength) {
-      return !(/decaf/.test(order) && strength > 20);
+    isNotStrongDecaf: function (order, strength) {
+      return !(/decaf/.test(order) && strength >= 35);
     }
   };
 

@@ -48,8 +48,8 @@
   });
   formHandler.addResetHandler();
   formHandler.addEmailValidityHandler(Validation.isCompanyEmail);
-  formHandler.addOrderValidityHandler(Validation.isStrongDecaf);
-  formHandler.addStrengthValidityHandler(Validation.isStrongDecaf);
+  formHandler.addOrderValidityHandler(Validation.isNotStrongDecaf);
+  formHandler.addStrengthValidityHandler(Validation.isNotStrongDecaf);
 
   checklist.addClickHandler(myTruck.deliverOrder.bind(myTruck));
 })(window);
